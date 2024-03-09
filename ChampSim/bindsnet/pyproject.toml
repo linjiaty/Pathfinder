@@ -1,0 +1,72 @@
+[tool.poetry]
+name = "bindsnet"
+version = "0.3.1"
+description = "Spiking neural networks for ML in Python"
+authors = [ "Hananel Hazan <hananel@hazan.org.il>", "Daniel Saunders", "Darpan Sanghavi", "Hassaan Khan" ]
+license = "AGPL-3.0-only"
+readme = "README.md"
+repository = "https://github.com/BindsNET/bindsnet"
+documentation = "https://bindsnet-docs.readthedocs.io/"
+keywords = ["spiking", "neural", "networks", "pytorch"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+numpy = "^1.23.1"
+scipy = "^1.8.1"
+Cython = "^0.29.24"
+torch = "1.12.0"
+torchvision = "0.13.0"
+torchaudio = "0.12.0"
+tensorboardX = "2.5.1"
+tqdm = "^4.62.2"
+matplotlib = "^3.4.3"
+gym = "^0.10.4"
+scikit-build = "^0.12.0"
+scikit-image = "^0.18.3"
+scikit-learn = "^0.24.2"
+opencv-python = "^4.6.0"
+pandas = "^1.4.2"
+foolbox = "^3.3.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+pre-commit = "^2.14.0"
+notebook = "^6.4.12"
+jupyterlab = "^3.1.9"
+isort = "^5.9.3"
+black = "^22.3.0"
+autoflake = "^1.4"
+
+Sphinx = "3.4.3"
+sphinx-rtd-theme = "0.5.1"
+imagecodecs = "^2021.8.26"
+
+[build-system]
+requires = ["setuptools", "poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+line_length = 88
+src_paths = ["bindsnet", "test"]
+
+[tool.black]
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.pytest_cache
+  | \.venv
+  | \.github
+  | build
+  | dist
+  | BindsNET.egg-info
+  | notebooks
+  | data
+  | logs
+  )/
+'''
