@@ -221,12 +221,12 @@ def run_command():
                 exit(-1)
 
             if seed is not None:
-                cmd = '{binary} -prefetch_warmup_instructions {warm}000000 -simulation_instructions {sim}000000 -seed {seed} -traces {trace} > {results}/{base_trace}-{base_binary}.txt 2>&1'.format(
+                cmd = '{binary} -prefetch_warmup_instructions {warm}000000 -simulation_instructions {sim} -seed {seed} -traces {trace} > {results}/{base_trace}-{base_binary}.txt 2>&1'.format(
                     binary=binary, warm=args.num_prefetch_warmup_instructions, sim=args.num_instructions,
                     trace=execution_trace, seed=seed, results=args.results_dir,
                     base_trace=os.path.basename(execution_trace), base_binary=os.path.basename(binary))
             else:
-                cmd = '{binary} -prefetch_warmup_instructions {warm}000000 -simulation_instructions {sim}000000 -traces {trace} > {results}/{base_trace}-{base_binary}.txt 2>&1'.format(
+                cmd = '{binary} -prefetch_warmup_instructions {warm}000000 -simulation_instructions {sim} -traces {trace} > {results}/{base_trace}-{base_binary}.txt 2>&1'.format(
                     binary=binary, warm=args.num_prefetch_warmup_instructions, sim=args.num_instructions,
                     trace=execution_trace, results=args.results_dir, base_trace=os.path.basename(execution_trace),
                     base_binary=os.path.basename(binary))
@@ -241,12 +241,12 @@ def run_command():
             exit(-1)
 
         if seed is not None:
-            cmd = '<{prefetch} {binary} -prefetch_warmup_instructions {warm}000000 -simulation_instructions {sim}000000 -seed {seed} -traces {trace} > {results}/{base_trace}-{base_binary}.txt 2>&1'.format(
+            cmd = '<{prefetch} {binary} -prefetch_warmup_instructions {warm}000000 -simulation_instructions {sim} -seed {seed} -traces {trace} > {results}/{base_trace}-{base_binary}.txt 2>&1'.format(
                 prefetch=args.prefetch, binary=default_prefetcher_binary, warm=args.num_prefetch_warmup_instructions, sim=args.num_instructions,
                 trace=execution_trace, seed=seed, results=args.results_dir,
                 base_trace=os.path.basename(execution_trace), base_binary=args.name)#os.path.basename(default_prefetcher_binary))
         else:
-            cmd = '<{prefetch} {binary} -prefetch_warmup_instructions {warm}000000 -simulation_instructions {sim}000000 -traces {trace} > {results}/{base_trace}-{base_binary}.txt 2>&1'.format(
+            cmd = '<{prefetch} {binary} -prefetch_warmup_instructions {warm}000000 -simulation_instructions {sim} -traces {trace} > {results}/{base_trace}-{base_binary}.txt 2>&1'.format(
                 prefetch=args.prefetch, binary=default_prefetcher_binary, warm=args.num_prefetch_warmup_instructions, sim=args.num_instructions,
                 trace=execution_trace, results=args.results_dir, base_trace=os.path.basename(execution_trace),
                 base_binary=args.name)#os.path.basename(default_prefetcher_binary))
